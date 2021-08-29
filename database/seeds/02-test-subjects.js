@@ -2,7 +2,7 @@
 exports.seed = function (knex) {
   const users = [
     {
-      username: "tracker"
+      username: "Trapper"
     }
   ];
 
