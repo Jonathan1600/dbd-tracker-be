@@ -5,10 +5,16 @@ const find = () => {
 };
 
 const findById = (id) => {
-    return db('tracker').where({ "user_id": id }).first()
+    return db('tracker').where({ "id": id }).first()
 };
+
+async function addUser(body) {
+    console.log(body)
+    return await db('tracker').insert(body).returning("*");
+}
 
 module.exports = {
     find,
-    findById
+    findById,
+    addUser
 }
