@@ -5,7 +5,7 @@ const find = () => {
 };
 
 const findById = (id) => {
-    return db('tracker').where({ "id": id }).first()
+    return db('tracker').where({ id }).first()
 };
 
 async function addUser(body) {
@@ -20,10 +20,15 @@ async function deleteById(id) {
     return await db('tracker').where({ id }).delete().returning("*");
 }
 
+async function findBySteamId(steam_id) {
+    return await db('tracker').where({ steam_id }).first()
+}
+
 module.exports = {
     find,
     findById,
     addUser,
     updateById,
-    deleteById
+    deleteById,
+    findBySteamId
 }
