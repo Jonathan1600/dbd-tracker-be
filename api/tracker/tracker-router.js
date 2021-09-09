@@ -46,11 +46,21 @@ router.delete('/:id', (req, res, next) => {
         .catch(next);
 });
 
-router.get('/steam_id/:steam_id', (req, res, next) => {
+router.get('/steam/:steam_id', (req, res, next) => {
     const { steam_id } = req.params;
     Tracker.findBySteamId(steam_id)
         .then((user) => {
             res.status(200).json(user);
+        })
+        .catch(next);
+});
+
+router.put('/steam/:steam_id', (req, res, next) => {
+    const { steam_id } = req.params;
+    const body = req.body;
+    Tracker.updateBySteamId(steam_id, body)
+        .then((user) => {
+            res.status(200).json({ message: "User has been updated", user });
         })
         .catch(next);
 });
@@ -63,5 +73,6 @@ router.use((err, req, res, next) => { // eslint-disable-line
         err: err,
     })
 });
+
 
 module.exports = router;

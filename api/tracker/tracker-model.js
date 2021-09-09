@@ -1,12 +1,12 @@
 const db = require('../../database/db-config');
 
 const find = () => {
-    return db('tracker')
-};
+    return db('tracker');
+}
 
 const findById = (id) => {
-    return db('tracker').where({ id }).first()
-};
+    return db('tracker').where({ id }).first();
+}
 
 async function addUser(body) {
     return await db('tracker').insert(body).returning("*");
@@ -21,7 +21,11 @@ async function deleteById(id) {
 }
 
 async function findBySteamId(steam_id) {
-    return await db('tracker').where({ steam_id }).first()
+    return await db('tracker').where({ steam_id }).first();
+}
+
+async function updateBySteamId(steam_id, body) {
+    return await db('tracker').where({ steam_id }).update(body).returning("*");
 }
 
 module.exports = {
@@ -30,5 +34,6 @@ module.exports = {
     addUser,
     updateById,
     deleteById,
-    findBySteamId
+    findBySteamId,
+    updateBySteamId
 }
