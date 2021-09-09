@@ -3,6 +3,7 @@ exports.seed = function (knex) {
   const users = [
     {
       username: "Trapper",
+      steam_id: "aaaaaaaa1234",
       total_hours: 15.5,
       acct_created: '2015-12-25',
       total_bloodpoints: 3654180,

@@ -4,6 +4,7 @@ exports.up = async (knex) => {
         .createTable('tracker', (tbl) => {
             tbl.increments();
             tbl.string('username', 200).notNullable().unique();
+            tbl.string('steam_id').unique();
             tbl.float('total_hours');
             tbl.date('acct_created');
             tbl.integer('total_bloodpoints');

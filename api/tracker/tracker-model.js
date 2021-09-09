@@ -16,9 +16,14 @@ async function updateById(id, body) {
     return await db('tracker').where({ id }).update(body).returning("*");
 }
 
+async function deleteById(id) {
+    return await db('tracker').where({ id }).delete().returning("*");
+}
+
 module.exports = {
     find,
     findById,
     addUser,
-    updateById
+    updateById,
+    deleteById
 }
