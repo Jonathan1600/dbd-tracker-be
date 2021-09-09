@@ -9,12 +9,16 @@ const findById = (id) => {
 };
 
 async function addUser(body) {
-    console.log(body)
     return await db('tracker').insert(body).returning("*");
+}
+
+async function updateById(id, body) {
+    return await db('tracker').where({ id }).update(body).returning("*");
 }
 
 module.exports = {
     find,
     findById,
-    addUser
+    addUser,
+    updateById
 }

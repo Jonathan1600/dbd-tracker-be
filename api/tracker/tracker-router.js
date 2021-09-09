@@ -21,17 +21,17 @@ router.get('/:id', (req, res, next) => {
 router.post('/', (req, res, next) => {
     Tracker.addUser(req.body)
         .then((user) => {
-            res.status(201).json({ Message: "New user has been created sucessfully!", user });
+            res.status(201).json({ message: "New user has been created sucessfully!", user });
         })
         .catch(next);
 });
 
 router.put('/:id', (req, res, next) => {
     const { id } = req.params;
-    const { body } = req.params;
+    const body = req.body;
     Tracker.updateById(id, body)
-        .then((newUser) => {
-            res.status(200).json({ Message: "User has been updated", newUser });
+        .then((user) => {
+            res.status(200).json({ message: "User has been updated", user });
         })
         .catch(next);
 });
@@ -39,8 +39,8 @@ router.put('/:id', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
     const { id } = req.params;
     Tracker.deleteById(id)
-        .then((userDeleted) => {
-            res.status(200).json({ Message: "User deleted succesfully", userDeleted });
+        .then((user) => {
+            res.status(200).json({ message: "User deleted succesfully", user });
         })
         .catch(next);
 });
