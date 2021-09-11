@@ -62,4 +62,23 @@ This app will be design to show my progress in the video game automatically and 
 
 **PUT on /api/:id**
 
-\*returns an object with new user if sucessful
+\*returns an object with the updated user if sucessful
+
+## Deleting a Plant
+
+**DELETE from /api/:id**
+
+\*returns the message "User deleted succesfully" if successful and the deleted user.
+
+
+## Viewing a specific user - Steam ID
+
+**GET on /api/steam/:id**
+
+\*returns an object with the user
+
+## Editing a User - Steam ID
+
+**PUT on /api/stea/:id**
+
+\*returns an object with the updated user if sucessful
